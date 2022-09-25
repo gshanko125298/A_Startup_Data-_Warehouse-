@@ -26,3 +26,6 @@ In order to develop the dbt DAG  locally instead of in the containers (for faste
            -  run cd dbt
            -  run dbt run --profiles-dir /Users/sam/code/dag-stack --target local_dev
 
+# Airflow DAG setup
+   - The setup is done by using the custom dbt and Airflow operators, in addation to that Python and bash operators also used
+   
