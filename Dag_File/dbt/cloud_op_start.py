@@ -2,7 +2,7 @@
 from pendulum import datetime
 
 from airflow.decorators import dag
-from airflow.operators.dummy import DummyOperator
+#from airflow.operators.dummy import DummyOperator
 from airflow.operators.python import ShortCircuitOperator
 from airflow.providers.dbt.cloud.hooks.dbt import DbtCloudHook, DbtCloudJobRunStatus
 from airflow.providers.dbt.cloud.operators.dbt import DbtCloudRunJobOperator
