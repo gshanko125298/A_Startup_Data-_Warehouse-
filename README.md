@@ -12,3 +12,18 @@ This repo contains a runnable demo using containerized Airflow, which is a conve
    - You can also run the DAG in this repo with a standard Airflow installation if you want. 
    - You'll have to install the relevant dependencies (Airflow, dbt, Great Expectations, the respective operators, etc) and 
    - probably handle some more configurations to get it to work.
+# Development
+In order to develop the dbt DAG  locally instead of in the containers (for faster dev loops),  a new virtual environment created and installed relevant packages wit pip install -r requirements.txt
+
+- dbt setup: run dbt init dbt to create the dbt directory in this repo
+- copied ~/.dbt/profiles.yml into the root of this project and added the a startup data warahouse postgres creds to have a database available 
+- -- you wouldn't use this database in production or keep the file in the repo, this is just a shortcut for this demo!!
+    The profiles.yml target setup allows  to run the dbt pipeline both locally and within the container:
+        Container:
+            connect to shell within the scheduler container
+            run cd dbt
+            run dbt run --profiles-dir /usr/local/airflow --target a startup data warehouse
+        Local:
+            run cd dbt
+            run dbt run --profiles-dir /Users/sam/code/dag-stack --target local_dev
+
